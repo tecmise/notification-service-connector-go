@@ -2,7 +2,7 @@ module github.com/tecmise/notification-service-connector-go
 
 go 1.23.5
 
-require github.com/tecmise/connector-lib v0.0.10
+require github.com/tecmise/connector-lib v0.0.11
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.38.3 // indirect
