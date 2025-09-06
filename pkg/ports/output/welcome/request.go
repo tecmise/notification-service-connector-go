@@ -5,20 +5,19 @@ package welcome
 
 import (
 	"encoding/json"
+	"github.com/go-playground/validator/v10"
 )
 
 // WelcomeRequest representa o modelo de dados para WelcomeRequest
 type WelcomeRequest struct {
 	// The email address of the new user
-	To string `json:"to" validate:"required,email"`
+	To string `json:"to" validate:"required,email" sqs:"message_group_id,message_deduplication_id"`
 	// The password for the new user
 	Password string `json:"password" validate:"required"`
 	// The token for user verification
 	Token string `json:"token" validate:"required"`
 	// The name of the new user
 	Name string `json:"name" validate:"required"`
-	// The message group id for FIFO queues
-	MessageGroupId string `json:"message_group_id" validate:"required"`
 }
 
 // String retorna uma representação em string do WelcomeRequest
@@ -29,8 +28,7 @@ func (m *WelcomeRequest) String() string {
 
 // Validate valida os campos do WelcomeRequest
 func (m *WelcomeRequest) Validate() error {
-	// TODO: Implementar validação customizada
-	return nil
+	return validator.New().Struct(m)
 }
 
 // NewWelcomeRequest cria uma nova instância de WelcomeRequest
