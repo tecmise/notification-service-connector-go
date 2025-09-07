@@ -2,7 +2,10 @@ module github.com/tecmise/notification-service-connector-go
 
 go 1.23.5
 
-require github.com/tecmise/connector-lib v0.0.11
+require (
+	github.com/go-playground/validator/v10 v10.27.0
+	github.com/tecmise/connector-lib v0.0.11
+)
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.38.3 // indirect
@@ -22,11 +25,9 @@ require (
 	github.com/gabriel-vasile/mimetype v1.4.10 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
-	github.com/go-playground/validator/v10 v10.27.0 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	golang.org/x/crypto v0.41.0 // indirect
-	golang.org/x/net v0.43.0 // indirect
 	golang.org/x/sys v0.35.0 // indirect
 	golang.org/x/text v0.28.0 // indirect
 	google.golang.org/protobuf v1.36.8 // indirect
