@@ -4,6 +4,10 @@
 package welcome
 
 import (
+	shared_kernel "github.com/tecmise/notification-service-connector-go/pkg/ports/output/shared_kernel"
+)
+
+import (
 	"encoding/json"
 	"github.com/go-playground/validator/v10"
 )
@@ -18,6 +22,10 @@ type WelcomeRequest struct {
 	Token string `json:"token" validate:"required"`
 	// The name of the new user
 	Name string `json:"name" validate:"required"`
+	// The locale of the new user
+	Locale shared_kernel.Locale `json:"locale" validate:"required"`
+	// The mail identity to be used
+	Identity shared_kernel.Identity `json:"Identity" validate:"required"`
 }
 
 // String retorna uma representação em string do WelcomeRequest
