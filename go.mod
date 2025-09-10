@@ -4,7 +4,7 @@ go 1.23.5
 
 require (
 	github.com/go-playground/validator/v10 v10.27.0
-	github.com/tecmise/connector-lib v0.1.2
+	github.com/tecmise/connector-lib v0.1.3
 )
 
 require (
