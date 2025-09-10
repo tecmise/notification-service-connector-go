@@ -12,15 +12,15 @@ import (
 type Identity int32
 
 const (
-	Identity_Identity_IDENTITY_UNSPECIFIED Identity = 0
-	Identity_Identity_s4s                  Identity = 1
+	Identity_IDENTITY_UNSPECIFIED = 0
+	Identity_s4s                  = 1
 )
 
 func (e Identity) String() string {
 	switch e {
-	case Identity_Identity_IDENTITY_UNSPECIFIED:
+	case Identity_IDENTITY_UNSPECIFIED:
 		return "Identity_IDENTITY_UNSPECIFIED"
-	case Identity_Identity_s4s:
+	case Identity_s4s:
 		return "Identity_s4s"
 	default:
 		return "UNKNOWN"
@@ -38,9 +38,9 @@ func (e *Identity) UnmarshalJSON(b []byte) error {
 	}
 	switch s {
 	case "Identity_IDENTITY_UNSPECIFIED":
-		*e = Identity_Identity_IDENTITY_UNSPECIFIED
+		*e = Identity_IDENTITY_UNSPECIFIED
 	case "Identity_s4s":
-		*e = Identity_Identity_s4s
+		*e = Identity_s4s
 	default:
 		return fmt.Errorf("invalid Identity value %q", s)
 	}

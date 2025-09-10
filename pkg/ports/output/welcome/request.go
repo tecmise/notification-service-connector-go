@@ -10,6 +10,7 @@ import (
 import (
 	"encoding/json"
 	"github.com/go-playground/validator/v10"
+	"github.com/tecmise/connector-lib/pkg/ports/output/request"
 )
 
 // WelcomeRequest representa o modelo de dados para WelcomeRequest
@@ -29,14 +30,24 @@ type WelcomeRequest struct {
 }
 
 // String retorna uma representação em string do WelcomeRequest
+var _ request.Validatable = (*WelcomeRequest)(nil)
+
 func (m *WelcomeRequest) String() string {
 	data, _ := json.MarshalIndent(m, "", "  ")
 	return string(data)
 }
 
 // Validate valida os campos do WelcomeRequest
-func (m *WelcomeRequest) Validate() error {
-	return validator.New().Struct(m)
+func (m *WelcomeRequest) Validate(functions ...request.CustomValidator) error {
+	validate := validator.New()
+	if functions != nil {
+		for _, function := range functions {
+			if err := validate.RegisterValidation(function.Name, function.Method); err != nil {
+				return err
+			}
+		}
+	}
+	return validate.Struct(m)
 }
 
 // NewWelcomeRequest cria uma nova instância de WelcomeRequest

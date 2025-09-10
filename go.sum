@@ -51,8 +51,8 @@ github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcUk=
 github.com/stretchr/testify v1.8.4/go.mod h1:sz/lmYIOXD/1dqDmKjjqLyZ2RngseejIcXlSw2iwfAo=
-github.com/tecmise/connector-lib v0.0.11 h1:Q8gUNJ0jYrhzTxgxm/+Lp8yXdPTbAdw4/uYdM64rHqY=
-github.com/tecmise/connector-lib v0.0.11/go.mod h1:Zdnu7e9o842oizfwjh7b3Nnmqxub/DNQkUEYjZqYApY=
+github.com/tecmise/connector-lib v0.1.2 h1:Jsbgrws17ngksiUoZATf3eLMCIOrPPt2lDdQnGEx0OQ=
+github.com/tecmise/connector-lib v0.1.2/go.mod h1:xm7nEroREcamTl3ANGwW+zAJJp94imMdI9ZshfX07ws=
 golang.org/x/crypto v0.41.0 h1:WKYxWedPGCTVVl5+WHSSrOBT0O8lx32+zxmHxijgXp4=
 golang.org/x/crypto v0.41.0/go.mod h1:pO5AFd7FA68rFak7rOAGVuygIISepHftHnr8dr6+sUc=
 golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=

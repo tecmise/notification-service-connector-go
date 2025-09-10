@@ -10,25 +10,31 @@ import (
 
 import (
 	"context"
-	"github.com/tecmise/connector-lib/pkg/adapters/outbound/sqs"
+)
+import (
+	"github.com/tecmise/connector-lib/pkg/adapters/outbound/client_sqs"
+	"github.com/tecmise/connector-lib/pkg/ports/output/request"
 )
 
 type (
 	EmailPublisher interface {
-		WelcomeMail(ctx context.Context, req *welcome.WelcomeRequest) (*assync.QueueTriggerResponse, error)
+		WelcomeMail(ctx context.Context, req *welcome.WelcomeRequest, validations ...request.CustomValidator) (*assync.QueueTriggerResponse, error)
 	}
 
 	emailPublisher struct {
-		publisher sqs.AssyncPublisher
+		publisher client_sqs.AssyncPublisher
 	}
 )
 
 func NewEmailPublisher() EmailPublisher {
 	return &emailPublisher{
-		publisher: sqs.NewAssyncPublisher(),
+		publisher: client_sqs.NewAssyncPublisher(),
 	}
 }
 
-func (i *emailPublisher) WelcomeMail(ctx context.Context, req *welcome.WelcomeRequest) (*assync.QueueTriggerResponse, error) {
-	return i.publisher.Publish(ctx, assync.QueueRequest(req), "new-user-mail.fifo", req.To, req.To)
+func (i *emailPublisher) WelcomeMail(ctx context.Context, req *welcome.WelcomeRequest, validations ...request.CustomValidator) (*assync.QueueTriggerResponse, error) {
+	if err := request.ValidateObject(req, validations...); err != nil {
+		return nil, err
+	}
+	return i.publisher.Publish(ctx, req, "new-user-mail.fifo", req.To, req.To)
 }

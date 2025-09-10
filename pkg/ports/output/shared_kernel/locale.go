@@ -12,15 +12,15 @@ import (
 type Locale int32
 
 const (
-	Locale_Locale_LOCALE_UNSPECIFIED Locale = 0
-	Locale_Locale_pt_BR              Locale = 1
+	Locale_LOCALE_UNSPECIFIED = 0
+	Locale_pt_BR              = 1
 )
 
 func (e Locale) String() string {
 	switch e {
-	case Locale_Locale_LOCALE_UNSPECIFIED:
+	case Locale_LOCALE_UNSPECIFIED:
 		return "Locale_LOCALE_UNSPECIFIED"
-	case Locale_Locale_pt_BR:
+	case Locale_pt_BR:
 		return "Locale_pt_BR"
 	default:
 		return "UNKNOWN"
@@ -38,9 +38,9 @@ func (e *Locale) UnmarshalJSON(b []byte) error {
 	}
 	switch s {
 	case "Locale_LOCALE_UNSPECIFIED":
-		*e = Locale_Locale_LOCALE_UNSPECIFIED
+		*e = Locale_LOCALE_UNSPECIFIED
 	case "Locale_pt_BR":
-		*e = Locale_Locale_pt_BR
+		*e = Locale_pt_BR
 	default:
 		return fmt.Errorf("invalid Locale value %q", s)
 	}
